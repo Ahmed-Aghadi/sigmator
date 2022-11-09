@@ -57,7 +57,7 @@ async function run(country, tokenId) {
     const nftObj = await revise.fetchNFT(nftReturned.id)
     const nft = revise.nft(nftObj)
     revise
-        .every("10s")
+        .every("86400s")
         .listenTo(function () {
             return generateImageURL(country)
         })
@@ -77,16 +77,16 @@ function randomDate(start, end) {
 
 const generateImageURL = async (country) => {
     console.log(country)
-    const d = randomDate(new Date(2020, 0, 1), new Date())
-    const begin = d.toISOString().split("T")[0] // random date
-    const end = new Date(d.getTime() + 24 * 60 * 60 * 1000).toISOString().split("T")[0] // random date + 1 day
-    // const begin = new Date().toISOString().split("T")[0] // now
-    // const end = new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toISOString().split("T")[0] // 1 day from now
+    // to set random dates
+    // const d = randomDate(new Date(2020, 0, 1), new Date())
+    // const begin = d.toISOString().split("T")[0] // random date
+    // const end = new Date(d.getTime() + 24 * 60 * 60 * 1000).toISOString().split("T")[0] // random date + 1 day
+
+    const begin = new Date().toISOString().split("T")[0] // now
+    const end = new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toISOString().split("T")[0] // 1 day from now
+
     // const end = new Date(new Date().setMonth(new Date().getMonth() + 1)).toISOString().split("T")[0] // 1 month from now
-    const url =
-        "https://18fc-2405-201-2009-682d-8576-45c1-b628-4b55.ngrok.io/" +
-        "api/image/" +
-        `?country=${country}&begin=${begin}&end=${end}`
+    const url = NEXT_API_URL + "/api/image/" + `?country=${country}&begin=${begin}&end=${end}`
     return { link: url, begin: begin, end: end }
 }
 
@@ -118,8 +118,6 @@ const fetchTokenId = async (address) => {
 
 export default async function handler(req, res) {
     const { country, tokenId, address } = req.query
-    await run()
-    return
     console.log(req.query)
     if (!tokenId || tokenId == undefined) {
         if (!address) {

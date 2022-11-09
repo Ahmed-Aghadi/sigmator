@@ -1,16 +1,15 @@
 ## Details
 
-A social platform for **GenZ** where users can upload post, mint a post and earn when someone else mint their post. There is a post fee which user have to pay. They can upload upto 5 images per post & can assign rarirites to each image, mint fee for minting and total supply for NFTs of the post. When a user mint a post, they have to pay mint fee and will randomly get any of the post image as an NFT based on the rarity assign to each image. Some NFTs may become rare considering finite supply and randomly image assignment and rarities assign to each image for NFTs. Every user can get a free Green NFT, a special NFT which dynamically updates over time using Revise Network. It shows co2 emission of current day in the user's country to spread awareness about Climate Change. For now, the project will randomly select a date and updates NFT dynamically so that one can see direct changes in the NFT and doesn't need to wait whole day to see a difference. Their NFT will have a 2d map which will dynamically updates and they can see and interact with a 3d map on the website.
+A social platform where users can upload post, mint a post and earn when someone else mint their post. There is a post fee which user have to pay. They can upload upto 5 images per post & can assign rarirites to each image, mint fee for minting and total supply for NFTs of the post. When a user mint a post, they have to pay mint fee and will randomly get any of the post image as an NFT based on the rarity assign to each image. Some NFTs may become rare considering finite supply and randomly image assignment and rarities assign to each image for NFTs. Every user can get a free Green NFT, a special NFT which dynamically updates every day using Revise Network. It shows co2 emission of current day in the user's country to spread awareness about **Climate Change**. Their NFT will have a 2d map which will dynamically updates and they can see and interact with a 3d map on the website.
 
-All contracts are deployed on polygon chain. Revise network is used to dynamically update the NFT. Chainlink is used to get random number to select a particular NFT randomly considering it's rarity also. Tableland is used for decentralized sql database. IPFS ( Filecoin ) is used to store files and other data using web3.storage.
-
+IPFS ( Filecoin ) is used to store almost all the contents (like images, title, description, json, etc.) and then to fetch it such that globaly everyone can see and appreciate the content in a decentralized way using web3.storage. All contracts are deployed on polygon chain. Revise network is used to dynamically update the NFT. Chainlink is used to get random number to select a particular NFT randomly considering it's rarity also. Tableland is used for decentralized sql database.
 [deck.gl](https://deck.gl/) and [mapbox-gl](https://docs.mapbox.com/mapbox-gl-js/api/) are used to render a 3d interactive map and [staticmaps](https://github.com/komoot/staticmap) is used to render a 2d image which will be dynamically assign to the Green NFT.
 
 | Tech stack used                   |
 | --------------------------------- |
+| [Filecoin](#filecoin)             |
 | [Polygon](#polygon)               |
 | [Revise Network](#revise-network) |
-| [Filecoin](#filecoin)             |
 | [Chainlink](#chainlink)           |
 | [Tableland](#tableland)           |
 
@@ -40,6 +39,14 @@ yarn hardhat deploy --network localhost
 
 ## Sponsors Used
 
+### Filecoin
+
+Filecoin was used to store almost all the contents (like images, title, description, json, etc.) and then to fetch it such that globaly everyone can see and appreciate the content in a decentralized way.
+
+[Use case example in the project](https://github.com/Ahmed-Aghadi/climate3/blob/main/client/my-app/pages/api/image-upload-ipfs.js)
+
+[Use case example in the project](https://github.com/Ahmed-Aghadi/climate3/blob/main/client/my-app/pages/api/json-upload-ipfs.js)
+
 ### Polygon
 
 All the smart contracts are deployed on polygon mumbai testnet.
@@ -53,14 +60,6 @@ All the smart contracts are deployed on polygon mumbai testnet.
 Revise is used to dynamically updates NFTs over time.
 
 [Use case example in the project](https://github.com/Ahmed-Aghadi/climate3/blob/main/client/my-app/pages/api/setImage.js)
-
-### Filecoin
-
-Filecoin was used to store contents (like images, description, etc.). And then to fetch it such that globaly everyone can see and appreciate the content in a decentralized way.
-
-[Use case example in the project](https://github.com/Ahmed-Aghadi/climate3/blob/main/client/my-app/pages/api/image-upload-ipfs.js)
-
-[Use case example in the project](https://github.com/Ahmed-Aghadi/climate3/blob/main/client/my-app/pages/api/json-upload-ipfs.js)
 
 ### Chainlink
 
