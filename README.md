@@ -8,10 +8,10 @@ IPFS ( Filecoin ) is used to store almost all the contents (like images, title, 
 | Tech stack used                   |
 | --------------------------------- |
 | [Filecoin](#filecoin)             |
-| [Polygon](#polygon)               |
-| [Revise Network](#revise-network) |
-| [Chainlink](#chainlink)           |
 | [Tableland](#tableland)           |
+| [Revise Network](#revise-network) |
+| [Polygon](#polygon)               |
+| [Chainlink](#chainlink)           |
 | [Mantine UI](#mantine-ui)         |
 | [MapBox](#mapbox)                 |
 | [Deckgl](#deckgl)                 |
@@ -51,6 +51,20 @@ Filecoin was used to store almost all the contents (like images, title, descript
 
 [JSON uploading to IPFS](https://github.com/Ahmed-Aghadi/sigmator/blob/main/client/my-app/pages/api/json-upload-ipfs.js)
 
+### Tableland
+
+Tableland was used to store the public data of every users and appropriate URIs of contents to fetch it instantly and give a better user experience.
+
+[Tableland in smart contracts](https://github.com/Ahmed-Aghadi/sigmator/blob/main/smart_contracts/contracts/SigmatorNFTTableland.sol)
+
+[Tableland in smart contracts](https://github.com/Ahmed-Aghadi/sigmator/blob/main/smart_contracts/contracts/SigmatorClimateNFT.sol)
+
+### Revise Network
+
+Revise is used to dynamically updates NFTs over time.
+
+[Dynamically updating the NFT](https://github.com/Ahmed-Aghadi/sigmator/blob/main/client/my-app/pages/api/setImage.js)
+
 ### Polygon
 
 All the smart contracts are deployed on polygon mumbai testnet.
@@ -59,25 +73,11 @@ All the smart contracts are deployed on polygon mumbai testnet.
 
 [Smart Contracts](https://github.com/Ahmed-Aghadi/sigmator/tree/main/smart_contracts/contracts)
 
-### Revise Network
-
-Revise is used to dynamically updates NFTs over time.
-
-[Dynamically updating the NFT](https://github.com/Ahmed-Aghadi/sigmator/blob/main/client/my-app/pages/api/setImage.js)
-
 ### Chainlink
 
 Chainlink was used to randomly select an image out of all images of the post while also considering rarities assigned while minting.
 
 [Chainlink VRF Coordinator](https://github.com/Ahmed-Aghadi/sigmator/blob/main/smart_contracts/contracts/SigmatorNFTHandle.sol)
-
-### Tableland
-
-Tableland was used to store the public data of every users and appropriate URIs of contents to fetch it instantly and give a better user experience.
-
-[Tableland in smart contracts](https://github.com/Ahmed-Aghadi/sigmator/blob/main/smart_contracts/contracts/SigmatorNFTTableland.sol)
-
-[Tableland in smart contracts](https://github.com/Ahmed-Aghadi/sigmator/blob/main/smart_contracts/contracts/SigmatorClimateNFT.sol)
 
 ### Mantine UI
 
