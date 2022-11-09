@@ -12,10 +12,14 @@ IPFS ( Filecoin ) is used to store almost all the contents (like images, title, 
 | [Revise Network](#revise-network) |
 | [Chainlink](#chainlink)           |
 | [Tableland](#tableland)           |
+| [Mantine UI](#mantine-ui)         |
+| [MapBox](#mapbox)                 |
+| [Deckgl](#deckgl)                 |
+| [Static Maps](#static-maps)       |
 
 ## Deployements
 
-Deployed website at Vercel: [Genzer](https://climate3.vercel.app/)
+Deployed website at Vercel: [Sigmator](https://sigmator.vercel.app/)
 
 ## Getting Started
 
@@ -41,36 +45,58 @@ yarn hardhat deploy --network localhost
 
 ### Filecoin
 
-Filecoin was used to store almost all the contents (like images, title, description, json, etc.) and then to fetch it such that globaly everyone can see and appreciate the content in a decentralized way.
+Filecoin was used to store almost all the contents (like images, title, description in json, etc.) and then to fetch it such that globaly everyone can see and appreciate the content in a decentralized way.
 
-[Use case example in the project](https://github.com/Ahmed-Aghadi/climate3/blob/main/client/my-app/pages/api/image-upload-ipfs.js)
+[Images uploading to IPFS](https://github.com/Ahmed-Aghadi/sigmator/blob/main/client/my-app/pages/api/image-upload-ipfs.js)
 
-[Use case example in the project](https://github.com/Ahmed-Aghadi/climate3/blob/main/client/my-app/pages/api/json-upload-ipfs.js)
+[JSON uploading to IPFS](https://github.com/Ahmed-Aghadi/sigmator/blob/main/client/my-app/pages/api/json-upload-ipfs.js)
 
 ### Polygon
 
 All the smart contracts are deployed on polygon mumbai testnet.
 
-[Use case example in the project](https://github.com/Ahmed-Aghadi/climate3/tree/main/smart_contracts/deployments/mumbai)
+[Deployements](https://github.com/Ahmed-Aghadi/sigmator/tree/main/smart_contracts/deployments/mumbai)
 
-[Use case example in the project](https://github.com/Ahmed-Aghadi/climate3/tree/main/smart_contracts/contracts)
+[Smart Contracts](https://github.com/Ahmed-Aghadi/sigmator/tree/main/smart_contracts/contracts)
 
 ### Revise Network
 
 Revise is used to dynamically updates NFTs over time.
 
-[Use case example in the project](https://github.com/Ahmed-Aghadi/climate3/blob/main/client/my-app/pages/api/setImage.js)
+[Dynamically updating the NFT](https://github.com/Ahmed-Aghadi/sigmator/blob/main/client/my-app/pages/api/setImage.js)
 
 ### Chainlink
 
 Chainlink was used to randomly select an image out of all images of the post while also considering rarities assigned while minting.
 
-[Use case example in the project](https://github.com/Ahmed-Aghadi/climate3/blob/main/smart_contracts/contracts/SigmatorNFTHandle.sol)
+[Chainlink VRF Coordinator](https://github.com/Ahmed-Aghadi/sigmator/blob/main/smart_contracts/contracts/SigmatorNFTHandle.sol)
 
 ### Tableland
 
 Tableland was used to store the public data of every users and appropriate URIs of contents to fetch it instantly and give a better user experience.
 
-[Use case example in the project](https://github.com/Ahmed-Aghadi/climate3/blob/main/smart_contracts/contracts/SigmatorNFTTableland.sol)
+[Tableland in smart contracts](https://github.com/Ahmed-Aghadi/sigmator/blob/main/smart_contracts/contracts/SigmatorNFTTableland.sol)
 
-[Use case example in the project](https://github.com/Ahmed-Aghadi/climate3/blob/main/smart_contracts/contracts/SigmatorClimateNFT.sol)
+[Tableland in smart contracts](https://github.com/Ahmed-Aghadi/sigmator/blob/main/smart_contracts/contracts/SigmatorClimateNFT.sol)
+
+### Mantine UI
+
+Mantine ui was heavily used in front end for styling.
+
+### Mapbox
+
+Mapbox was used to give user an interactive 3D map
+
+[GreenNFT component](https://github.com/Ahmed-Aghadi/sigmator/blob/main/client/my-app/components/GreenNFT.js#L142)
+
+### Deckgl
+
+Deckgl was used to plot points on 3D map and let user visualize co2 emission properly.
+
+[GreenNFT component](https://github.com/Ahmed-Aghadi/sigmator/blob/main/client/my-app/components/GreenNFT.js#L135)
+
+### Static Maps
+
+Static Maps was used to get a 2D map and ability to plot points on the map and then the image generated is used to dynamically update the Green NFT of users.
+
+[GreenNFT component](https://github.com/Ahmed-Aghadi/sigmator/blob/main/client/my-app/components/GreenNFT.js#L135)
