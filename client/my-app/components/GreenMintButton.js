@@ -104,7 +104,9 @@ function GreenMintButton() {
                 console.log("NFTsDataJson", NFTsDataJson)
                 if (NFTsDataJson == undefined || !NFTsDataJson || NFTsDataJson.length == 0) {
                     const resForJson = await fetch(
-                        "/api/setImage" + `?country=${country}&address=${userAddress.toLowerCase()}`
+                        process.env.NEXT_PUBLIC_API_URL +
+                            "/api/setImage" +
+                            `?country=${country}&address=${userAddress.toLowerCase()}`
                     )
 
                     const jsonOfResForJson = await resForJson.json()
@@ -118,7 +120,9 @@ function GreenMintButton() {
                     console.log("url", `?country=${country}&tokenId=${tokenId}`)
 
                     const resForJson = await fetch(
-                        "/api/setImage" + `?country=${country}&tokenId=${tokenId}`
+                        process.env.NEXT_PUBLIC_API_URL +
+                            "/api/setImage" +
+                            `?country=${country}&tokenId=${tokenId}`
                     )
 
                     const jsonOfResForJson = await resForJson.json()

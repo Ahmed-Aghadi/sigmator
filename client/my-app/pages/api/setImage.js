@@ -86,7 +86,10 @@ const generateImageURL = async (country) => {
     const end = new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toISOString().split("T")[0] // 1 day from now
 
     // const end = new Date(new Date().setMonth(new Date().getMonth() + 1)).toISOString().split("T")[0] // 1 month from now
-    const url = NEXT_API_URL + "/api/image/" + `?country=${country}&begin=${begin}&end=${end}`
+    const url =
+        process.env.NEXT_PUBLIC_API_URL +
+        "/api/image/" +
+        `?country=${country}&begin=${begin}&end=${end}`
     return { link: url, begin: begin, end: end }
 }
 

@@ -237,10 +237,13 @@ function Upload() {
             for (let i = 0; i < files.length; i++) {
                 const body = new FormData()
                 body.append("file", files[i])
-                const resForImageCid = await fetch("/api/image-upload-ipfs", {
-                    method: "POST",
-                    body: body,
-                })
+                const resForImageCid = await fetch(
+                    process.env.NEXT_PUBLIC_API_URL + "/api/image-upload-ipfs",
+                    {
+                        method: "POST",
+                        body: body,
+                    }
+                )
                 const jsonOfResForImageCid = await resForImageCid.json()
                 const imageCid = jsonOfResForImageCid.cid
                 imagesCid.push(imageCid)
@@ -248,14 +251,17 @@ function Upload() {
             }
             console.log("imagesCid", imagesCid)
 
-            const resForJsonCid = await fetch("/api/json-upload-ipfs", {
-                method: "POST",
-                body: JSON.stringify({
-                    title: title,
-                    description: description,
-                }),
-                headers: { "Content-Type": "application/json" },
-            })
+            const resForJsonCid = await fetch(
+                process.env.NEXT_PUBLIC_API_URL + "/api/json-upload-ipfs",
+                {
+                    method: "POST",
+                    body: JSON.stringify({
+                        title: title,
+                        description: description,
+                    }),
+                    headers: { "Content-Type": "application/json" },
+                }
+            )
 
             const jsonOfResForJsonCid = await resForJsonCid.json()
 
