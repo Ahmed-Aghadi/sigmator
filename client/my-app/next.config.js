@@ -12,5 +12,3 @@ module.exports = {
     },
     trailingSlash: true,
 }
-
-module.exports = nextConfig
