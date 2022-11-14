@@ -23,11 +23,27 @@ async function verifyContracts() {
             gasLane,
             callbackGasLimit,
             nftCreatePrice,
-            nftName,
-            nftSymbol,
         ]
         await run("verify:verify", {
-            address: "0xaA5Bc908107902F6845495667ce73BF7D8c56E27",
+            address: "0x1f99Dab8E1EE97EbC6227DbD87D57F4e7B6Bec08",
+            constructorArguments: arguments,
+        })
+    } catch (e) {
+        if (e.message.toLowerCase().includes("already verified")) {
+            console.log("Already verified!")
+        } else {
+            console.log(e)
+        }
+    }
+    try {
+        const arguments = [
+            nftName,
+            nftSymbol,
+            "https://SIGMATORTRYNFT.revise.link/",
+            tablelandRegistry,
+        ]
+        await run("verify:verify", {
+            address: "0x3f25e354de85d89e1fB9dB7e5ded81c65c9779eC",
             constructorArguments: arguments,
         })
     } catch (e) {

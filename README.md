@@ -21,6 +21,12 @@ IPFS ( Filecoin ) is used to store almost all the contents (like images, title, 
 
 [Smart Contracts Addresses](https://github.com/Ahmed-Aghadi/sigmator/blob/main/client/my-app/constants/contractAddress.json)
 
+### Verified Smart Contracts on polygonscan
+
+[Sigmator](https://mumbai.polygonscan.com/address/0x1f99dab8e1ee97ebc6227dbd87d57f4e7b6bec08#code)
+
+[SigmatorClimateNFT](https://mumbai.polygonscan.com/address/0x3f25e354de85d89e1fb9db7e5ded81c65c9779ec#code)
+
 ## Tech Stack Used
 
 | Tech stack used                   |
