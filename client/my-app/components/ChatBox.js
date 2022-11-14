@@ -41,31 +41,31 @@ function ChatBox({ groupId, modalOpen }) {
         }
     }
 
-    const createGroup = async () => {
-        let orbis = new Orbis()
-        let resIsConnect = await orbis.isConnected()
-        if (resIsConnect.status !== 200) {
-            let resConnect = await orbis.connect()
-            console.log("resConnect", resConnect)
-            if (resConnect.status !== 200) {
-                return
-            }
-        }
-        let resCreateGroup = await orbis.createGroup({
-            pfp: "https://bafybeidnpzpfwzrby3xttaugdqxfszc6wgokh3lbjwr4jqt26v2fuf66da.ipfs.dweb.link/image",
-            name: "Test Group 1",
-        })
-        console.log("resCreateGroup", resCreateGroup)
-        // resCreateGroup {status: 200, doc: 'kjzl6cwe1jw149dblylqsgnu4uwiom7wqqrfvb7o42u8yr6e4osk06aeg830jvo', result: 'Success creating TileDocument.'}
-        //         _result: {status: 200, result: 'Indexed stream with success.', stream: 'kjzl6cwe1jw149dblylqsgnu4uwiom7wqqrfvb7o42u8yr6e4osk06aeg830jvo'}
-        // index.js?45bf:29 Indexed kjzl6cwe1jw149dblylqsgnu4uwiom7wqqrfvb7o42u8yr6e4osk06aeg830jvo with success.
-    }
-    const checkConnected = async () => {
-        let orbis = new Orbis()
-        let resIsConnect = await orbis.isConnected()
-        console.log("resConnect", resIsConnect)
-        console.log({ groupId })
-    }
+    // const createGroup = async () => {
+    //     let orbis = new Orbis()
+    //     let resIsConnect = await orbis.isConnected()
+    //     if (resIsConnect.status !== 200) {
+    //         let resConnect = await orbis.connect()
+    //         console.log("resConnect", resConnect)
+    //         if (resConnect.status !== 200) {
+    //             return
+    //         }
+    //     }
+    //     let resCreateGroup = await orbis.createGroup({
+    //         pfp: "https://bafybeidnpzpfwzrby3xttaugdqxfszc6wgokh3lbjwr4jqt26v2fuf66da.ipfs.dweb.link/image",
+    //         name: "Test Group 1",
+    //     })
+    //     console.log("resCreateGroup", resCreateGroup)
+    //     // resCreateGroup {status: 200, doc: 'kjzl6cwe1jw149dblylqsgnu4uwiom7wqqrfvb7o42u8yr6e4osk06aeg830jvo', result: 'Success creating TileDocument.'}
+    //     //         _result: {status: 200, result: 'Indexed stream with success.', stream: 'kjzl6cwe1jw149dblylqsgnu4uwiom7wqqrfvb7o42u8yr6e4osk06aeg830jvo'}
+    //     // index.js?45bf:29 Indexed kjzl6cwe1jw149dblylqsgnu4uwiom7wqqrfvb7o42u8yr6e4osk06aeg830jvo with success.
+    // }
+    // const checkConnected = async () => {
+    //     let orbis = new Orbis()
+    //     let resIsConnect = await orbis.isConnected()
+    //     console.log("resConnect", resIsConnect)
+    //     console.log({ groupId })
+    // }
 
     const sendMessage = async () => {
         const msg = typedMessage
