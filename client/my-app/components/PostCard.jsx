@@ -73,7 +73,8 @@ function PostCard({ post }) {
     }, [])
 
     const fetchFromPost = async () => {
-        const postData = await fetch("https://" + post.finalCid + ".ipfs.w3s.link/sigmator.json")
+        const postData = await fetch("https://" + post.finalCid + ".ipfs.dweb.link/sigmator.json")
+
         const postJson = await postData.json()
         const { title, description } = postJson
         setTitle(title)
@@ -93,7 +94,7 @@ function PostCard({ post }) {
         const images = []
         for (let i = 0; i < numberOfImages; i++) {
             const image = await postContractInstance.getSigmatorTokenUris(i)
-            images.push("https://" + image + ".ipfs.w3s.link/image")
+            images.push("https://" + image + ".ipfs.dweb.link/image")
         }
         setImages(images)
         setLoading(false)

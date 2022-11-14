@@ -34,6 +34,7 @@ import { useAccount } from "wagmi"
 import { useSigner } from "wagmi"
 import { useContractRead, useContractWrite, usePrepareContractWrite, useSignMessage } from "wagmi"
 import { currency, sigmatorAbi, sigmatorContractAddress } from "../constants"
+import { Orbis } from "@orbisclub/orbis-sdk"
 // import {
 //     canisterId as genzerCanisterId,
 //     createActor as createGenzerActor,
@@ -286,6 +287,77 @@ function Upload() {
                 maxSupply,
                 { value: ethers.utils.parseUnits(nftCreatePrice, "ether") }
             )
+
+            let orbis = new Orbis()
+            console.log("orbis", orbis)
+            let resIsConnect = await orbis.isConnected()
+            console.log("resIsConnect", resIsConnect)
+            if (resIsConnect.status !== 200) {
+                console.log("not connected")
+                let resConnect = await orbis.connect()
+                console.log("resConnect", resConnect)
+                if (resConnect.status !== 200) {
+                    updateNotification({
+                        id: "load-data",
+                        autoClose: 5000,
+                        title: "Unable to connect with ceramic on orbis",
+                        message: "Check console for more details",
+                        color: "red",
+                        icon: <IconX />,
+                        className: "my-notification-class",
+                        loading: false,
+                    })
+                    return
+                }
+            }
+            // let resConnect = await orbis.connect()
+
+            // if (resConnect.status !== 200) {
+            //     updateNotification({
+            //         id: "load-data",
+            //         autoClose: 5000,
+            //         title: "Unable to connect with ceramic on orbis",
+            //         message: "Check console for more details",
+            //         color: "red",
+            //         icon: <IconX />,
+            //         className: "my-notification-class",
+            //         loading: false,
+            //     })
+            //     return
+            // }
+
+            let resGroup = await orbis.createGroup({
+                pfp: imagesCid[0],
+                name: title,
+            })
+
+            if (resGroup.status !== 200) {
+                console.log("resGroup", resGroup)
+                updateNotification({
+                    id: "load-data",
+                    autoClose: 5000,
+                    title: "Unable to create group with ceramic on orbis",
+                    message: "Check console for more details",
+                    color: "red",
+                    icon: <IconX />,
+                    className: "my-notification-class",
+                    loading: false,
+                })
+                return
+            }
+
+            console.log(
+                "args",
+                jsonCid,
+                nftName,
+                symbol,
+                ethers.utils.parseUnits(mintFee.toString(), "ether"),
+                sliderValues,
+                imagesCid,
+                maxSupply,
+                resGroup.doc
+            )
+
             const tx = await contractInstance.upload(
                 jsonCid,
                 nftName,
@@ -294,6 +366,7 @@ function Upload() {
                 sliderValues,
                 imagesCid,
                 maxSupply,
+                resGroup.doc,
                 { value: ethers.utils.parseUnits(nftCreatePrice, "ether") }
             )
             console.log("tx done")

@@ -503,6 +503,11 @@
                 "internalType": "uint256",
                 "name": "sigmatorTotalToken",
                 "type": "uint256"
+            },
+            {
+                "internalType": "string",
+                "name": "groupId",
+                "type": "string"
             }
         ],
         "name": "upload",

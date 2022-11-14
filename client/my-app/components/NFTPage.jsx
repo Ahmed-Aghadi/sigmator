@@ -75,7 +75,7 @@ function NFTPage() {
             console.log("rarity", rarity)
             setName(nftName)
             setSymbol(symbol)
-            setImage("https://" + image + ".ipfs.w3s.link/image")
+            setImage("https://" + image + ".ipfs.dweb.link/image")
             setRarity(rarity)
             setNftOwner(owner)
             setFound(true)

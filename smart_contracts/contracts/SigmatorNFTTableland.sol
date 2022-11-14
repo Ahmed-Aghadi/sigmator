@@ -28,7 +28,7 @@ contract SigmatorNFTTableland {
                 _prefix,
                 "_",
                 Strings.toString(block.chainid),
-                " (id integer primary key, userAddress text NOT NULL, nftAddress text NOT NULL, finalCid text NOT NULL);"
+                " (id integer primary key, userAddress text NOT NULL, nftAddress text NOT NULL, groupId text NOT NULL, finalCid text NOT NULL);"
             )
         );
 
@@ -69,6 +69,7 @@ contract SigmatorNFTTableland {
     function _createNftEntry(
         address userAddress,
         address nftAddress,
+        string memory groupId,
         string memory finalCid
     ) internal virtual {
         _tableland.runSQL(
@@ -77,11 +78,13 @@ contract SigmatorNFTTableland {
             string.concat(
                 "INSERT INTO ",
                 _marketTableName,
-                " (userAddress, nftAddress, finalCid) VALUES (",
+                " (userAddress, nftAddress, groupId, finalCid) VALUES (",
                 "'",
                 _addressToString(userAddress),
                 "','",
                 _addressToString(nftAddress),
+                "','",
+                groupId,
                 "','",
                 finalCid,
                 "');"

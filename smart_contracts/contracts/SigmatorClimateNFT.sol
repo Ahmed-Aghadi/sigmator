@@ -97,12 +97,12 @@ contract SigmatorClimateNFT is ERC721 {
         return _nftTableName;
     }
 
-    function _baseURI() internal view override(ERC721) returns (string memory) {
-        return baseuri;
-    }
-
     function getNftTableId() public view returns (uint256) {
         return _nftTableId;
+    }
+
+    function _baseURI() internal view override(ERC721) returns (string memory) {
+        return baseuri;
     }
 
     function getTokenCounter() public view returns (uint256) {

@@ -39,7 +39,8 @@ contract SigmatorNFTHandle is SigmatorNFTTableland, Ownable {
         uint256 mintFee,
         uint256[] memory sigmatorTokenRarity,
         string[] memory sigmatorTokenUris,
-        uint256 sigmatorTotalToken
+        uint256 sigmatorTotalToken,
+        string memory groupId
     ) internal virtual {
         if (msg.value < s_nftCreatePrice) {
             revert NeedMoreETH();
@@ -68,7 +69,7 @@ contract SigmatorNFTHandle is SigmatorNFTTableland, Ownable {
         nftToTotalToken[address(sigmatorNFT)] = sigmatorTotalToken;
         nftToOwner[address(sigmatorNFT)] = msgSender;
         // " (id integer primary key, userAddress text NOT NULL, nftAddress text NOT NULL, postID integer NOT NULL);"
-        _createNftEntry(msgSender, address(sigmatorNFT), finalCid);
+        _createNftEntry(msgSender, address(sigmatorNFT), groupId, finalCid);
         emit NFTCreated(address(sigmatorNFT), msgSender);
     }
 

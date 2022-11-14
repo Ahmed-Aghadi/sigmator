@@ -5,9 +5,8 @@ export function Sliders({ sliderValues, setSliderValues }) {
     // const defaultSliderValues = Array(numberOfSliders).fill(0)
     const sliders = sliderValues.map((value, index) => {
         return (
-            <Center>
+            <Center key={index}>
                 <Slider
-                    key={index}
                     radius="xl"
                     mt="lg"
                     sx={{ width: "70%" }}

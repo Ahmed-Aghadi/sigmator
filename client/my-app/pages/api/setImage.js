@@ -18,13 +18,13 @@ async function run(country, tokenId) {
     // console.log("uri", uri)
     // const collection = await revise.addCollection({
     //     name: "GREEN",
-    //     uri: "sigmator-try",
+    //     uri: "sigmator-try-ipfs",
     // })
     // console.log("collection", collection)
     // return
     // console.log("_________________________________________")
-    // collection { id: 'de743ef8-618d-49ed-bc42-75e5b41a96cd' }
-    const collection = { id: "de743ef8-618d-49ed-bc42-75e5b41a96cd" }
+    // collection { id: '6ab7786c-f4ea-4a6a-874c-0e8f812ca512' }
+    const collection = { id: "6ab7786c-f4ea-4a6a-874c-0e8f812ca512" }
 
     // const nftReturned = await revise.addNFT(
     //     {
@@ -57,7 +57,7 @@ async function run(country, tokenId) {
     const nftObj = await revise.fetchNFT(nftReturned.id)
     const nft = revise.nft(nftObj)
     revise
-        .every("86400s")
+        .every("43800m") // 43800 min = 30 days
         .listenTo(function () {
             return generateImageURL(country)
         })
@@ -83,9 +83,9 @@ const generateImageURL = async (country) => {
     // const end = new Date(d.getTime() + 24 * 60 * 60 * 1000).toISOString().split("T")[0] // random date + 1 day
 
     const begin = new Date().toISOString().split("T")[0] // now
-    const end = new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toISOString().split("T")[0] // 1 day from now
+    // const end = new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toISOString().split("T")[0] // 1 day from now
 
-    // const end = new Date(new Date().setMonth(new Date().getMonth() + 1)).toISOString().split("T")[0] // 1 month from now
+    const end = new Date(new Date().setMonth(new Date().getMonth() + 1)).toISOString().split("T")[0] // 1 month from now
     const url =
         process.env.NEXT_PUBLIC_API_URL +
         "/api/image/" +

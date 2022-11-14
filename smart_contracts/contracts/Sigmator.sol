@@ -40,7 +40,8 @@ contract Sigmator is ERC721Holder, VRFConsumerBaseV2, SigmatorNFTTableland, Sigm
         uint256 mintFee,
         uint256[] memory sigmatorTokenRarity,
         string[] memory sigmatorTokenUris,
-        uint256 sigmatorTotalToken
+        uint256 sigmatorTotalToken,
+        string memory groupId
     ) public payable {
         _createNFT(
             msg.sender,
@@ -50,7 +51,8 @@ contract Sigmator is ERC721Holder, VRFConsumerBaseV2, SigmatorNFTTableland, Sigm
             mintFee,
             sigmatorTokenRarity,
             sigmatorTokenUris,
-            sigmatorTotalToken
+            sigmatorTotalToken,
+            groupId
         );
     }
 

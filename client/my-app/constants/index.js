@@ -12,6 +12,12 @@ const nftTableName = tableNames.nft
 const climateNftTableName = tableNames.climateNft
 const climateNFTCollectionURI = collection.uri
 const currency = "MATIC"
+const ipfsGateway = (cid, suffixUrl) => {
+    return "https://" + cid + ".ipfs.w3s.link/" + suffixUrl
+}
+const ipfsGateway1 = (cid, suffixUrl) => {
+    return "https://ipfs.io/ipfs/" + cid + "/" + suffixUrl
+}
 module.exports = {
     sigmatorAbi,
     sigmatorNFTAbi,
@@ -24,4 +30,6 @@ module.exports = {
     countryCodes,
     climateNFTCollectionURI,
     currency,
+    ipfsGateway,
+    ipfsGateway1,
 }

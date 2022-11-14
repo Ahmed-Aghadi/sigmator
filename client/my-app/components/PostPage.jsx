@@ -34,6 +34,7 @@ import {
 } from "../constants"
 import { useRouter } from "next/router"
 import { useAccount, useSigner } from "wagmi"
+import ChatBox from "./ChatBox"
 
 const icp_fee = 10000
 function PostPage() {
@@ -55,6 +56,8 @@ function PostPage() {
     const [nftRarities, setNftRarities] = useState([])
     const [loading, setLoading] = useState(true)
     const [found, setFound] = useState(false)
+    const [groupId, setGroupId] = useState() // "kjzl6cwe1jw149dblylqsgnu4uwiom7wqqrfvb7o42u8yr6e4osk06aeg830jvo"
+    const [chatModalOpened, setChatModalOpened] = useState(false)
     const [mintModalOpened, setMintModalOpened] = useState(false)
     useEffect(() => {
         if (router.isReady) {
@@ -77,8 +80,9 @@ function PostPage() {
         console.log("postsDataJson", postsDataJson)
         if (postsDataJson.length == 1) {
             const post = postsDataJson[0]
+            setGroupId(post.groupId)
             const postData = await fetch(
-                "https://" + post.finalCid + ".ipfs.w3s.link/sigmator.json"
+                "https://" + post.finalCid + ".ipfs.dweb.link/sigmator.json"
             )
             const postJson = await postData.json()
             const { title, description } = postJson
@@ -112,7 +116,7 @@ function PostPage() {
             for (let i = 0; i < numberOfImages; i++) {
                 const image = await postContractInstance.getSigmatorTokenUris(i)
                 const rarity = (await postContractInstance.getSigmatorTokenRarity(i)).toString()
-                images.push("https://" + image + ".ipfs.w3s.link/image")
+                images.push("https://" + image + ".ipfs.dweb.link/image")
                 rarities.push(rarity)
             }
             setTitle(title)
@@ -294,7 +298,7 @@ function PostPage() {
                             {description}
                         </Text>
 
-                        <Center mt="lg">
+                        <Center mt="lg" mb="md">
                             <Badge
                                 color="cyan"
                                 variant="outline"
@@ -311,9 +315,9 @@ function PostPage() {
 
                         <div style={{ marginTop: "40px" }}>
                             {nftRarities &&
-                                nftRarities.map((nftRarity) => {
+                                nftRarities.map((nftRarity, index) => {
                                     return (
-                                        <Center>
+                                        <Center key={index}>
                                             <Slider
                                                 color="cyan"
                                                 radius="xl"
@@ -386,6 +390,29 @@ function PostPage() {
                         >
                             Mint fee : {mintFee} {currency}
                         </Text>
+
+                        <Modal
+                            opened={chatModalOpened}
+                            size="55%"
+                            overflow="inside"
+                            onClose={() => setChatModalOpened(false)}
+                            title="Comments"
+                        >
+                            <ChatBox groupId={groupId} modalOpen={chatModalOpened} />
+                        </Modal>
+                        <Center>
+                            <Button
+                                mt="md"
+                                variant="outline"
+                                radius="md"
+                                size="md"
+                                onClick={() => {
+                                    setChatModalOpened(true)
+                                }}
+                            >
+                                see comments
+                            </Button>
+                        </Center>
                     </>
                 ) : (
                     <Text
