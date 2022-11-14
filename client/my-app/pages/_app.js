@@ -26,6 +26,7 @@ import { useEffect, useState } from "react"
 import { currency, sigmatorAbi, sigmatorContractAddress } from "../constants"
 import WithdrawButton from "../components/WithdrawButton"
 import { useRouter } from "next/router"
+import Head from "next/head"
 
 const { chains, provider } = configureChains([chain.polygonMumbai], [publicProvider()])
 
