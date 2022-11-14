@@ -64,86 +64,117 @@ function MyApp({ Component, pageProps }) {
     }, [])
 
     return (
-        <WagmiConfig client={wagmiClient}>
-            <NotificationsProvider position="top-right" zIndex={2077}>
-                <MantineProvider withGlobalStyles withNormalizeCSS>
-                    <RainbowKitProvider
-                        chains={chains}
-                        theme={colorScheme === "dark" ? darkTheme() : lightTheme()}
-                    >
-                        <ColorSchemeProvider
-                            colorScheme={colorScheme}
-                            toggleColorScheme={toggleColorScheme}
+        <>
+            <Head>
+                <title>Sigmator</title>
+                <meta
+                    name="viewport"
+                    content="minimum-scale=1, initial-scale=1, width=device-width"
+                />
+                <meta
+                    name={"description"}
+                    content={
+                        "A social platform where users can make a post and assign rarities to each of the image and then other users can mint the post to support the content creators and have an exclusive limited edition NFTs. Also every user can mint a Free Green NFT which dynamically updates every day and shows co2 emission in user's country of that day.\n"
+                    }
+                />
+                <meta
+                    property={"og:title"}
+                    content={
+                        "A social platform where users can make a post and assign rarities to each of the image and then other users can mint the post to support the content creators and have an exclusive limited edition NFTs. Also every user can mint a Free Green NFT which dynamically updates every day and shows co2 emission in user's country of that day.\n"
+                    }
+                />
+                <meta
+                    property={"og:description"}
+                    content={
+                        "A social platform where users can make a post and assign rarities to each of the image and then other users can mint the post to support the content creators and have an exclusive limited edition NFTs. Also every user can mint a Free Green NFT which dynamically updates every day and shows co2 emission in user's country of that day.\n"
+                    }
+                />
+                <meta property={"og:url"} content={"https://sigmator.vercel.app/"} />
+                <meta property="og:type" content="website" />
+            </Head>
+            <WagmiConfig client={wagmiClient}>
+                <NotificationsProvider position="top-right" zIndex={2077}>
+                    <MantineProvider withGlobalStyles withNormalizeCSS>
+                        <RainbowKitProvider
+                            chains={chains}
+                            theme={colorScheme === "dark" ? darkTheme() : lightTheme()}
                         >
                             <ColorSchemeProvider
                                 colorScheme={colorScheme}
                                 toggleColorScheme={toggleColorScheme}
                             >
-                                <MantineProvider
-                                    theme={{ colorScheme }}
-                                    withGlobalStyles
-                                    withNormalizeCSS
+                                <ColorSchemeProvider
+                                    colorScheme={colorScheme}
+                                    toggleColorScheme={toggleColorScheme}
                                 >
-                                    <AppShell
-                                        padding="md"
-                                        navbar={<NavbarMinimal />}
-                                        header={
-                                            <Header height={60} p="xs">
-                                                <Grid
-                                                    justify="space-between"
-                                                    columns={2}
-                                                    align="center"
-                                                    pl={35}
-                                                    pr={35}
-                                                    mt={2}
-                                                >
-                                                    <div
-                                                        style={{
-                                                            display: "flex",
-                                                            alignItems: "center",
-                                                            justifyContent: "center",
-                                                            cursor: "pointer",
-                                                        }}
-                                                        onClick={() => {
-                                                            titleClick()
-                                                        }}
-                                                    >
-                                                        <Text
-                                                            size={25}
-                                                            weight={700}
-                                                            sx={{ marginRight: "5px" }}
-                                                        >
-                                                            Sigmator
-                                                        </Text>
-                                                        <IconCircleDotted size={35} />
-                                                    </div>
-                                                    {mounted && isConnected && <GreenMintButton />}
-                                                    <WithdrawButton />
-                                                    <div>
-                                                        <ConnectButton />
-                                                    </div>
-                                                    {/* <ConnectButton /> */}
-                                                </Grid>
-                                            </Header>
-                                        }
-                                        styles={(theme) => ({
-                                            main: {
-                                                backgroundColor:
-                                                    theme.colorScheme === "dark"
-                                                        ? theme.colors.dark[8]
-                                                        : theme.colors.gray[0],
-                                            },
-                                        })}
+                                    <MantineProvider
+                                        theme={{ colorScheme }}
+                                        withGlobalStyles
+                                        withNormalizeCSS
                                     >
-                                        <Component {...pageProps} />
-                                    </AppShell>
-                                </MantineProvider>
+                                        <AppShell
+                                            padding="md"
+                                            navbar={<NavbarMinimal />}
+                                            header={
+                                                <Header height={60} p="xs">
+                                                    <Grid
+                                                        justify="space-between"
+                                                        columns={2}
+                                                        align="center"
+                                                        pl={35}
+                                                        pr={35}
+                                                        mt={2}
+                                                    >
+                                                        <div
+                                                            style={{
+                                                                display: "flex",
+                                                                alignItems: "center",
+                                                                justifyContent: "center",
+                                                                cursor: "pointer",
+                                                            }}
+                                                            onClick={() => {
+                                                                titleClick()
+                                                            }}
+                                                        >
+                                                            <Text
+                                                                size={25}
+                                                                weight={700}
+                                                                sx={{ marginRight: "5px" }}
+                                                            >
+                                                                Sigmator
+                                                            </Text>
+                                                            <IconCircleDotted size={35} />
+                                                        </div>
+                                                        {mounted && isConnected && (
+                                                            <GreenMintButton />
+                                                        )}
+                                                        <WithdrawButton />
+                                                        <div>
+                                                            <ConnectButton />
+                                                        </div>
+                                                        {/* <ConnectButton /> */}
+                                                    </Grid>
+                                                </Header>
+                                            }
+                                            styles={(theme) => ({
+                                                main: {
+                                                    backgroundColor:
+                                                        theme.colorScheme === "dark"
+                                                            ? theme.colors.dark[8]
+                                                            : theme.colors.gray[0],
+                                                },
+                                            })}
+                                        >
+                                            <Component {...pageProps} />
+                                        </AppShell>
+                                    </MantineProvider>
+                                </ColorSchemeProvider>
                             </ColorSchemeProvider>
-                        </ColorSchemeProvider>
-                    </RainbowKitProvider>
-                </MantineProvider>
-            </NotificationsProvider>
-        </WagmiConfig>
+                        </RainbowKitProvider>
+                    </MantineProvider>
+                </NotificationsProvider>
+            </WagmiConfig>
+        </>
     )
 }
 
