@@ -5,6 +5,8 @@ A social platform where users can upload post, mint a post and earn when someone
 IPFS ( Filecoin ) is used to store almost all the contents (like images, title, description, json, etc.) and then to fetch it such that globaly everyone can see and appreciate the content in a decentralized way using web3.storage. All contracts are deployed on polygon chain. Revise network is used to dynamically update the NFT. Chainlink is used to get random number to select a particular NFT randomly considering it's rarity also. Tableland is used for decentralized sql database.
 [deck.gl](https://deck.gl/) and [mapbox-gl](https://docs.mapbox.com/mapbox-gl-js/api/) are used to render a 3d interactive map and [staticmaps](https://github.com/komoot/staticmap) is used to render a 2d image which will be dynamically assign to the Green NFT.
 
+[Smart Contracts Addresses](https://github.com/Ahmed-Aghadi/sigmator/blob/main/client/my-app/constants/contractAddress.json)
+
 | Tech stack used                   |
 | --------------------------------- |
 | [Filecoin](#filecoin)             |
