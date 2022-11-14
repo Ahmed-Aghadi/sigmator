@@ -1,11 +1,16 @@
 | Contents                            |
 | ----------------------------------- |
+| [Deployements](#deployements)       |
 | [Details](#details)                 |
 | [Smart Contracts](#smart-contracts) |
 | [Tech Stack Used](#tech-stack-used) |
 | [Features](#features)               |
-| [Deployements](#deployements)       |
 | [Getting Started](#getting-started) |
+
+## Deployements
+
+Deployed website at Spheron: [Sigmator](https://sigmator-3345fc.spheron.app/)
+Deployed website at Vercel: [Sigmator](https://sigmator.vercel.app/)
 
 ## Details
 
@@ -57,10 +62,6 @@ IPFS ( Filecoin ) is used to store almost all the contents (like images, title, 
 -   Every user can mint a Free Green NFT, a **dynamic NFT** which shows co2 emission of a particular country and updates itself every month using **Revise Network**. It's an initiaive for spreading awareness for **climate change**. As every profile will have their Green NFT associated and anyone can see that NFT and visualize co2 emission of that country.
 
 -   Green NFT will have a **2D rendered** map image (using **static maps**) showing co2 emission of a particular country but user can view a **3D interactive** version (using **mapbox** and **deck.gl**) on the website.
-
-## Deployements
-
-Deployed website at Vercel: [Sigmator](https://sigmator.vercel.app/)
 
 ## Getting Started
 
