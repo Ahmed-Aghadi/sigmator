@@ -18,13 +18,13 @@ async function run(country, tokenId) {
     // console.log("uri", uri)
     // const collection = await revise.addCollection({
     //     name: "GREEN",
-    //     uri: "sigmator-try-ipfs",
+    //     uri: "SIGMATORTRYNFT",
     // })
     // console.log("collection", collection)
     // return
     // console.log("_________________________________________")
-    // collection { id: '6ab7786c-f4ea-4a6a-874c-0e8f812ca512' }
-    const collection = { id: "6ab7786c-f4ea-4a6a-874c-0e8f812ca512" }
+    // collection { id: '6704fcc3-f183-4e21-aef6-7baf4b777399' }
+    const collection = { id: "6704fcc3-f183-4e21-aef6-7baf4b777399" }
 
     // const nftReturned = await revise.addNFT(
     //     {
