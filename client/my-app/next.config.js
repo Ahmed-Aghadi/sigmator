@@ -5,7 +5,6 @@ const nextConfig = {
 }
 
 module.exports = {
-    ...nextConfig,
     async headers() {
         return [
             {
@@ -29,6 +28,7 @@ module.exports = {
             },
         ]
     },
+    ...nextConfig,
     images: {
         loader: "akamai",
         path: "",
