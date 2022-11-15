@@ -6,6 +6,14 @@ const nextConfig = {
 
 module.exports = {
     ...nextConfig,
+    async rewrites() {
+        return [
+            {
+                source: "/api/:path*",
+                destination: "https://sigmator-3345fc.spheron.app/:path*",
+            },
+        ]
+    },
     images: {
         loader: "akamai",
         path: "",
