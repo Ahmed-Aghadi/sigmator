@@ -15,7 +15,7 @@ module.exports = {
                     { key: "Access-Control-Allow-Credentials", value: "true" },
                     {
                         key: "Access-Control-Allow-Origin",
-                        value: "https://sigmator-3345fc.spheron.app/",
+                        value: "https://sigmator-3345fc.spheron.app",
                     },
                     {
                         key: "Access-Control-Allow-Methods",
