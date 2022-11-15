@@ -17,7 +17,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
         : VERIFICATION_BLOCK_CONFIRMATIONS
 
     log("----------------------------------------------------")
-    const arguments = [nftName, nftSymbol, "https://ABCD789123.revise.link/", tablelandRegistry]
+    const arguments = [nftName, nftSymbol, "https://SIGMATORTRYNFT.revise.link/", tablelandRegistry]
     const sigmator = await deploy("SigmatorClimateNFT", {
         from: deployer,
         args: arguments,
