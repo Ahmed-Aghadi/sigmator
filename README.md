@@ -10,6 +10,7 @@
 ## Deployements
 
 Deployed website at Spheron: [Sigmator](https://sigmator-3345fc.spheron.app/)
+
 Deployed website at Vercel: [Sigmator](https://sigmator.vercel.app/)
 
 ## Details
