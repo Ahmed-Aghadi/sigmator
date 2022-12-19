@@ -44,6 +44,7 @@ IPFS ( Filecoin ) is used to store almost all the contents (like images, title, 
 | [Tableland](#tableland)           |
 | [Revise Network](#revise-network) |
 | [Chainlink](#chainlink)           |
+| [Spheron](#spheron)               |
 | [Mantine UI](#mantine-ui)         |
 | [MapBox](#mapbox)                 |
 | [Deckgl](#deckgl)                 |
@@ -138,6 +139,12 @@ Revise is used to dynamically updates NFTs over time.
 Chainlink was used to randomly select an image out of all images of the post while also considering rarities assigned while minting.
 
 [Chainlink VRF Coordinator](https://github.com/Ahmed-Aghadi/sigmator/blob/main/smart_contracts/contracts/SigmatorNFTHandle.sol)
+
+### Spheron
+
+Website is deployed on spheron thus providing a completely decentralized interface for the users.
+
+[Deployed on Spheron](https://sigmator-3345fc.spheron.app/)
 
 ### Orbis.club
 
