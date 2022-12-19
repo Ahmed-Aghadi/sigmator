@@ -37,11 +37,12 @@ IPFS ( Filecoin ) is used to store almost all the contents (like images, title, 
 
 | Tech stack used                   |
 | --------------------------------- |
+| [Polygon](#polygon)               |
+| [Moralis](#moralis)               |
 | [Filecoin](#filecoin)             |
 | [Orbis.club](#orbisclub)          |
 | [Tableland](#tableland)           |
 | [Revise Network](#revise-network) |
-| [Polygon](#polygon)               |
 | [Chainlink](#chainlink)           |
 | [Mantine UI](#mantine-ui)         |
 | [MapBox](#mapbox)                 |
@@ -92,6 +93,24 @@ yarn hardhat deploy --network mumbai
 
 ## Tech Stacks
 
+### Polygon
+
+All the smart contracts are deployed on polygon mumbai testnet.
+
+[Deployements](https://github.com/Ahmed-Aghadi/sigmator/tree/main/smart_contracts/deployments/mumbai)
+
+[Smart Contracts](https://github.com/Ahmed-Aghadi/sigmator/tree/main/smart_contracts/contracts)
+
+### Moralis
+
+Connection to blockchain and uploading json to folder in ipfs was done using moralis and moralis api.
+
+#### Atleast one example:
+
+[uploading json inside a folder in ipfs](https://github.com/Ahmed-Aghadi/sigmator/blob/main/client/my-app/components/Upload.jsx#L277)
+
+[fetching data from contracts](https://github.com/Ahmed-Aghadi/sigmator/blob/main/client/my-app/pages/index.js#L30)
+
 ### Filecoin
 
 Web3.storage was used to store almost all the contents (like images, title, description in json, etc.) and then to fetch it such that globaly everyone can see and appreciate the content in a decentralized way.
@@ -113,14 +132,6 @@ Tableland was used to store the public data of every users and appropriate URIs 
 Revise is used to dynamically updates NFTs over time.
 
 [Dynamically updating the NFT](https://github.com/Ahmed-Aghadi/sigmator/blob/main/client/my-app/pages/api/setImage.js)
-
-### Polygon
-
-All the smart contracts are deployed on polygon mumbai testnet.
-
-[Deployements](https://github.com/Ahmed-Aghadi/sigmator/tree/main/smart_contracts/deployments/mumbai)
-
-[Smart Contracts](https://github.com/Ahmed-Aghadi/sigmator/tree/main/smart_contracts/contracts)
 
 ### Chainlink
 

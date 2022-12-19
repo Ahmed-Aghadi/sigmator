@@ -20,11 +20,38 @@ export default function Home() {
 
     const [posts, setPosts] = useState([])
     const [nfts, setNfts] = useState([])
+    const [nftsSubData, setNftsSubData] = useState([])
 
     useEffect(() => {
         fetchPosts()
         fetchNFTs()
     }, [])
+
+    const fetchNFTSubData = async () => {
+        try {
+            const options = {
+                method: "POST",
+                url: `https://deep-index.moralis.io/api/v2/${sigmatorContractAddress}/function`,
+                params: { chain: "eth", function_name: "getNfts" },
+                headers: {
+                    accept: "application/json",
+                    "content-type": "application/json",
+                    "X-API-Key": NEXT_PUBLIC_MORALIS_API_KEY,
+                },
+                data: { abi: burfyAbi },
+            }
+
+            axios
+                .request(options)
+                .then(function (response) {
+                    setNftsSubData(response.data)
+                    console.log(response.data)
+                })
+                .catch(function (error) {
+                    console.error(error)
+                })
+        } catch (error) {}
+    }
 
     const fetchPosts = async () => {
         // const postsData = await fetch("https://testnet.tableland.network/query?s=" + "SELECT * FROM " + postTableName + " LIMIT 10")
